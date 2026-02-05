@@ -1,6 +1,6 @@
 # Dockerfile для Frontend (Nuxt)
 
-FROM node:18-alpine AS build
+FROM node:20-bullseye AS build
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Production образ
-FROM node:18-alpine
+FROM node:20-bullseye
 
 WORKDIR /app
 
