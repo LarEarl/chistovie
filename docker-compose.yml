@@ -45,6 +45,7 @@ services:
       - DB_PORT=5432
       - ALLOWED_HOSTS=localhost,127.0.0.1,backend,89.207.255.6,chistoviekrg.kz,www.chistoviekrg.kz
       - CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://89.207.255.6:3000,http://chistoviekrg.kz,http://www.chistoviekrg.kz,https://chistoviekrg.kz,https://www.chistoviekrg.kz
+      - CSRF_TRUSTED_ORIGINS=https://chistoviekrg.kz,https://www.chistoviekrg.kz
     depends_on:
       db:
         condition: service_healthy
