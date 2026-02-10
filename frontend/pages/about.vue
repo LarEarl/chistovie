@@ -6,7 +6,7 @@
         <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
           <h1 class="text-4xl font-bold text-gray-800 mb-4">О нас</h1>
           <p class="text-lg text-gray-600">
-            Добро пожаловать в Chistovye - ваш надежный партнер в выборе качественных товаров для дома.
+            Добро пожаловать в Чистовье Караганда - ваш надежный партнер в выборе качественных товаров для дома.
           </p>
         </div>
 
@@ -62,8 +62,27 @@
         </div>
 
         <!-- Contact Info -->
-        <div class="bg-primary-500 rounded-2xl shadow-lg p-8 text-white">
+        <div class="bg-primary-500 rounded-2xl shadow-lg p-8 text-white relative">
           <h2 class="text-2xl font-bold mb-6">Наши контакты</h2>
+
+          <div class="absolute top-6 right-6 flex rounded-full bg-white/15 p-1 text-sm">
+            <button
+              type="button"
+              class="px-3 py-1 rounded-full transition"
+              :class="activeCity === 'karaganda' ? 'bg-white text-primary-600' : 'text-white/90 hover:text-white'"
+              @click="activeCity = 'karaganda'"
+            >
+              Караганда
+            </button>
+            <button
+              type="button"
+              class="px-3 py-1 rounded-full transition"
+              :class="activeCity === 'temirtau' ? 'bg-white text-primary-600' : 'text-white/90 hover:text-white'"
+              @click="activeCity = 'temirtau'"
+            >
+              Темиртау
+            </button>
+          </div>
           
           <div class="space-y-4">
             <div class="flex items-start gap-4">
@@ -74,8 +93,8 @@
               </div>
               <div>
                 <h3 class="font-semibold mb-1">Телефон</h3>
-                <a href="tel:+77012635025" class="text-white/90 hover:text-white text-lg">
-                  +7 701 263 50 25
+                <a :href="`tel:${city.phoneRaw}`" class="text-white/90 hover:text-white text-lg">
+                  {{ city.phoneDisplay }}
                 </a>
               </div>
             </div>
@@ -89,7 +108,7 @@
               </div>
               <div>
                 <h3 class="font-semibold mb-1">Адрес</h3>
-                <p class="text-white/90 text-lg">Пичугина 162</p>
+                <p class="text-white/90 text-lg">{{ city.address }}</p>
               </div>
             </div>
 
@@ -101,8 +120,7 @@
               </div>
               <div>
                 <h3 class="font-semibold mb-1">Режим работы</h3>
-                <p class="text-white/90">Пн-Пт: 9:00 - 18:00</p>
-                <p class="text-white/90">Сб-Вс: 10:00 - 16:00</p>
+                <p class="text-white/90">{{ city.hours }}</p>
               </div>
             </div>
           </div>
@@ -113,10 +131,29 @@
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
+
+const activeCity = ref('karaganda')
+const cities = {
+  karaganda: {
+    phoneRaw: '+77017172108',
+    phoneDisplay: '+7 701 717 21 08',
+    address: 'Город Караганда Бухар-Жырау 50',
+    hours: 'Пн-Вс: 10:00 - 19:00'
+  },
+  temirtau: {
+    phoneRaw: '+77017172190',
+    phoneDisplay: '+7 701 717 21 90',
+    address: 'Город Темиртау проспект Мира 94',
+    hours: 'Пн-Сб: 10:00 - 19:00'
+  }
+}
+const city = computed(() => cities[activeCity.value])
+
 useHead({
-  title: 'О нас - Chistovye',
+  title: 'О нас - Чистовье Караганда',
   meta: [
-    { name: 'description', content: 'Информация о компании Chistovye и наши контакты' }
+    { name: 'description', content: 'Информация о компании Чистовье Караганда и наши контакты' }
   ]
 })
 </script>

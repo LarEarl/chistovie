@@ -8,7 +8,7 @@
             <span class="text-white text-2xl font-bold font-display">Ч</span>
           </div>
           <span class="text-2xl font-bold font-display text-white group-hover:text-white/90 transition-all">
-            Чистовье
+            Чистовье Караганда
           </span>
         </NuxtLink>
 

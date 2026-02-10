@@ -138,7 +138,7 @@ onMounted(async () => {
 })
 
 useHead({
-  title: 'Главная - Chistovye',
+  title: 'Главная - Чистовье Караганда',
   meta: [
     { name: 'description', content: 'Каталог качественных товаров для вашего дома' }
   ]

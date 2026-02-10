@@ -83,7 +83,7 @@
             </div>
 
             <div v-if="product.description" class="mb-8">
-              <h3 class="text-lg font-semibold mb-2">Описание</h3>
+              <h3 class="text-primary-500 font-semibold mb-2">Описание</h3>
               <p class="text-gray-600 leading-relaxed">{{ product.description }}</p>
             </div>
           </div>
@@ -139,7 +139,7 @@ onMounted(async () => {
 })
 
 useHead({
-  title: computed(() => product.value ? `${product.value.title} - Chistovye` : 'Товар - Chistovye'),
+  title: computed(() => product.value ? `${product.value.title} - Чистовье Караганда` : 'Товар - Чистовье Караганда'),
   meta: computed(() => [
     { name: 'description', content: product.value?.description || 'Описание товара' }
   ])
