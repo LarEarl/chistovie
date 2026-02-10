@@ -15,14 +15,25 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Chistovye - Каталог товаров',
+      title: 'Чистовье Караганда - Каталог товаров для дома',
+      htmlAttrs: {
+        lang: 'ru'
+      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Качественные товары для вашего дома' }
+        { name: 'description', content: 'Чистовье Караганда - товары для дома, чистящие средства и хозяйственные товары. Быстрая доставка и актуальные цены.' },
+        { name: 'robots', content: 'index,follow' },
+        { property: 'og:title', content: 'Чистовье Караганда - Каталог товаров для дома' },
+        { property: 'og:description', content: 'Чистовье Караганда - товары для дома, чистящие средства и хозяйственные товары.' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://chistoviekrg.kz/' },
+        { property: 'og:site_name', content: 'Чистовье Караганда' },
+        { name: 'twitter:card', content: 'summary' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://chistoviekrg.kz/' }
       ]
     }
   },
